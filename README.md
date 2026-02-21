@@ -1,3 +1,46 @@
+# FleetFlow Frontend
+
+React + Tailwind CSS frontend for the FleetFlow fleet management system.
+
+## Setup
+
+```bash
+npm install
+cp .env.example .env
+# Edit .env — set VITE_API_URL to your deployed backend URL
+npm run dev
+```
+
+## Deploy (Netlify / Vercel / Railway)
+
+```bash
+npm run build
+# Upload the dist/ folder, or connect your GitHub repo
+```
+
+**Environment variable to set on your host:**
+```
+VITE_API_URL=https://your-backend.railway.app/api/v1
+```
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/login` | Authentication |
+| `/` | Dashboard with stats + alerts |
+| `/vehicles` | Vehicle management |
+| `/drivers` | Driver management |
+| `/trips` | Trip creation, dispatch, complete, cancel |
+| `/fuel` | Fuel log entries |
+| `/maintenance` | Maintenance tracking |
+| `/expenses` | Expense logging |
+
+## Roles
+
+The UI respects backend roles — forms that require `fleet_manager` or `dispatcher` will fail gracefully with error messages from the API if the user lacks the role.
+
+
 # FleetFlow Backend API
 
 FastAPI + PostgreSQL backend for the FleetFlow Fleet & Logistics Management System.
