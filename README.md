@@ -1,98 +1,145 @@
-# FleetFlow Frontend
+# FleetFlow --- Fleet Management System
 
-React + Tailwind CSS frontend for the FleetFlow fleet management system.
+FleetFlow is a high‑performance fleet management system built using
+**FastAPI, PostgreSQL, and HTML**.\
+It enables efficient management of vehicles, drivers, and fleet
+operations through a clean and scalable backend architecture.
 
-## Setup
+Built for the **Odoo Hackathon**, with emphasis on performance,
+scalability, and clean engineering practices.
 
-```bash
-npm install
-cp .env.example .env
-# Edit .env — set VITE_API_URL to your deployed backend URL
-npm run dev
-```
+------------------------------------------------------------------------
 
-## Deploy (Netlify / Vercel / Railway)
+# Architecture
 
-```bash
-npm run build
-# Upload the dist/ folder, or connect your GitHub repo
-```
+Client (HTML Interface)\
+↓\
+FastAPI Backend\
+↓\
+PostgreSQL Database
 
-**Environment variable to set on your host:**
-```
-VITE_API_URL=https://your-backend.railway.app/api/v1
-```
+------------------------------------------------------------------------
 
-## Pages
+# Features
 
-| Route | Description |
-|---|---|
-| `/login` | Authentication |
-| `/` | Dashboard with stats + alerts |
-| `/vehicles` | Vehicle management |
-| `/drivers` | Driver management |
-| `/trips` | Trip creation, dispatch, complete, cancel |
-| `/fuel` | Fuel log entries |
-| `/maintenance` | Maintenance tracking |
-| `/expenses` | Expense logging |
+## Core Features
 
-## Roles
+-   Vehicle management
+-   Driver management
+-   Trip tracking
+-   Fleet operational monitoring
 
-The UI respects backend roles — forms that require `fleet_manager` or `dispatcher` will fail gracefully with error messages from the API if the user lacks the role.
+## Backend Engineering
 
+-   FastAPI REST API
+-   PostgreSQL database integration
+-   SQLAlchemy ORM
+-   Connection pooling
+-   Environment‑based configuration
 
-# FleetFlow Backend API
+## System Design
 
-FastAPI + PostgreSQL backend for the FleetFlow Fleet & Logistics Management System.
+-   Scalable backend architecture
+-   Clean separation of concerns
+-   Production‑ready structure
 
-## Setup
+------------------------------------------------------------------------
 
-### 1. Clone & create virtual environment
-```bash
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
+# Tech Stack
 
-### 2. Configure environment variables
-```bash
-cp .env.example .env
-# Edit .env with your actual values
-```
+Backend: - FastAPI - PostgreSQL - SQLAlchemy - Python
 
-### 3. Run locally
-```bash
-uvicorn main:app --reload
-```
+Frontend: - HTML - CSS
 
-API docs available at: http://localhost:8000/docs
+Deployment: - Render / Railway / VPS ready
 
----
+------------------------------------------------------------------------
 
-## Deployment (Railway / Render)
+# Project Structure
 
-Set the following environment variables on your hosting platform:
+    FleetFlow-OdooHackathon/
+    │
+    ├── main.py
+    ├── database.py
+    ├── requirements.txt
+    ├── procfile.txt
+    │
+    ├── templates/
+    │   └── index.html
+    │
+    ├── static/
+    │
+    ├── .env.example
+    └── README.md
 
-| Variable | Description |
-|---|---|
-| `DATABASE_URL` | PostgreSQL connection string |
-| `SECRET_KEY` | Strong random string for JWT signing |
-| `FRONTEND_URL` | Your production frontend URL |
-| `ENVIRONMENT` | Set to `production` |
-| `ALGORITHM` | `HS256` |
-| `ACCESS_TOKEN_EXPIRE_MINUTES` | e.g. `60` |
+------------------------------------------------------------------------
 
-> **Never commit `.env` to version control.** Use `.env.example` as a reference.
+# Setup Instructions
 
-The `Procfile` is already configured:
-```
-web: uvicorn main:app --host 0.0.0.0 --port $PORT
-```
+## 1. Clone repository
 
----
+    git clone https://github.com/Sansfear87/FleetFlow-OdooHackathon.git
+    cd FleetFlow-OdooHackathon
 
-## Generating a secure SECRET_KEY
+## 2. Create virtual environment
 
-```bash
-python -c "import secrets; print(secrets.token_hex(32))"
-```
+Windows:
+
+    python -m venv venv
+    venv\Scripts\activate
+
+Linux / Mac:
+
+    python -m venv venv
+    source venv/bin/activate
+
+## 3. Install dependencies
+
+    pip install -r requirements.txt
+
+## 4. Configure environment
+
+Create `.env` file:
+
+    DATABASE_URL=postgresql://username:password@localhost:5432/fleetflow
+
+## 5. Run server
+
+    uvicorn main:app --reload
+
+Open browser:
+
+    http://127.0.0.1:8000
+
+------------------------------------------------------------------------
+
+# API Documentation
+
+Swagger UI:
+
+    http://127.0.0.1:8000/docs
+
+------------------------------------------------------------------------
+
+# Hackathon Objective
+
+FleetFlow demonstrates:
+
+-   Backend engineering capability
+-   Database design skills
+-   Production‑ready architecture
+-   Clean API implementation
+
+------------------------------------------------------------------------
+
+# Author
+
+Amir\
+Odoo Hackathon Participant\
+GitHub: https://github.com/Sansfear87
+
+------------------------------------------------------------------------
+
+# License
+
+MIT License
