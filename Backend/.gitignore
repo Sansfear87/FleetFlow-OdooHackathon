@@ -1,4 +1,4 @@
-echo ".env" >> .gitignore
-echo "__pycache__/" >> .gitignore
-echo "*.pyc" >> .gitignore
-echo ".idea/" >> .gitignore
+.env
+__pycache__/
+*.pyc
+.idea/
